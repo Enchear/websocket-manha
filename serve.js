@@ -7,7 +7,7 @@ app.use(express.static("public"))
 const http = require("http").createServer(app)
 const socketServer = require("socket.io")(http)
 
-const PORT = 3500
+const PORT = process.env.PORT || 3500
 http.listen(PORT, () => console.log(`Servidor iniciado na porta ${PORT}`))
 
 socketServer.on("connect", (socket) => {
