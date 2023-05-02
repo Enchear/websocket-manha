@@ -4,7 +4,8 @@ $(() =>{
 
   $("form").submit(() =>{
     socket.emit("message", $("#texto").val())
-    return false
+    $("form").reset()
+    return false  
   })
 
   socket.on("message", (texto) => $("#mensagens").append($("<li>").text(texto)))
@@ -29,4 +30,12 @@ $(() =>{
   $("texto").keyup(()=> setTimeout (() => socket.emit("status", ""), 500))
   
   socket.on("status", (texto) => $("status").html(texto))
+
+
+  function UsuariosLoagados(){
+    prompt("a função esta funcionando")
+     const usuariologado = document.getElementById("#login").append("<li>")
+     console.log(usuariologado + "usuario logado com sucesso.");
+   }
 })
+// criar a função de usuários logados e mostre o usuário logado. 
