@@ -24,3 +24,28 @@ socketServer.on("connect", (socket) => {
 })
 
 app.get("/", (req, res) => res.sendFile(__dirname + "/index.html"))
+
+function recebeConexaoUsuario(socket) {
+  socket.on('login', (nickname) => registraLoginUsuario(socket, nickname))
+  socket.on('disconnect', () => console.log('Cliente desconectado: ' + socket.nickname))
+  socket.on('chat msg', (msg) => encaminhaMsgsUsuarios(socket, msg))
+  socket.on('status', (msg) => encaminhaMsgStatus(socket, msg))
+}
+
+function encaminhaMsgStatus(socket, msg) {
+  console.log(msg)
+  socket.broadcast.emit('status', msg)
+}
+
+function encaminhaMsgsUsuarios(socket, msg) {
+  serverSocket.emit('chat msg', `${socket.nickname} diz: ${msg}`)
+}
+
+function registraLoginUsuario(socket, nickname) {
+  socket.nickname = nickname
+  const msg = nickname + ' conectou'
+  console.log(msg)
+  serverSocket.emit('chat msg', msg)
+}
+
+serverSocket.on('connect', recebeConexaoUsuario)
