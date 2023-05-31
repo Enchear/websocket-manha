@@ -1,21 +1,3 @@
-:source-highlighter: highlightjs
-:numbered:
-:icons: font
-
-ifdef::env-github[]
-:outfilesuffix: .adoc
-:caution-caption: :fire:
-:important-caption: :exclamation:
-:note-caption: :paperclip:
-:tip-caption: :bulb:
-:warning-caption: :warning:
-endif::[]
-
-= Aplicação de Mensagens Instantâneas utilizando WebSocket com Node.js (link:https://kinolien.github.io/gitzip/?download=/manoelcampos/sd-websockets/tree/master/2.1-websocket-chat-nodejs[zip])
-
-NOTE: Acesse uma Playlist de vídeos mostrando todo o processo de desenvolvimento da aplicação https://www.youtube.com/watch?v=hEPAr4MPQjU&list=PLyo0RUAM69UvnqUq5SFeVahS_YTUVgq4v[aqui].
-
-image:chat-websockets.gif[]
 
 Web chat utilizando http://nodejs.org:[Node.js]. Com Node.js podemos usar JavaScript no lado servidor. A aplicação utiliza http://websocket.org[WebSockets (recurso do HTML5)] com a biblioteca http://socket.io para implementar o chat.
 
